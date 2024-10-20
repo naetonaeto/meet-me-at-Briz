@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp-like Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#chats">Chats</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><a href="#video-call">Video Call</a></li>
+                <li><a href="#voice-mail">Voice Mail</a></li>
+                <li><a href="#self-destruct">Self-Destruct</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Main content -->
+    <main>
+        <!-- Chats section -->
+        <section id="chats">
+            <h1>Chats</h1>
+            <ul id="chat-list">
+                <!-- Chat items -->
+                <li>
+                    <img src="user1.jpg" alt="User 1">
+                    <span>User 1</span>
+                    <p>Last message...</p>
+                </li>
+                <li>
+                    <img src="user2.jpg" alt="User 2">
+                    <span>User 2</span>
+                    <p>Last message...</p>
+                </li>
+            </ul>
+            <!-- Chat input -->
+            <input id="chat-input" type="text">
+            <!-- Send button -->
+            <button id="send-btn">Send</button>
+        </section>
+        <!-- Contacts section -->
+        <section id="contacts">
+            <h1>Contacts</h1>
+            <ul id="contact-list">
+                <!-- Contact items -->
+                <li>
+                    <img src="user1.jpg" alt="User 1">
+                    <span>User 1</span>
+                </li>
+                <li>
+                    <img src="user2.jpg" alt="User 2">
+                    <span>User 2</span>
+                </li>
+            </ul>
+        </section>
+        <!-- Settings section -->
+        <section id="settings">
+            <h1>Settings</h1>
+            <!-- Settings options -->
+            <ul>
+                <li>
+                    <label for="theme">Theme:</label>
+                    <select id="theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="password">Password:</label>
+                    <input id="password" type="password">
+                </li>
+                <li>
+                    <label for="face-id">Face ID:</label>
+                    <input id="face-id" type="file">
+                </li>
+                <li>
+                    <label for="notifications">Notifications:</label>
+                    <select id="notifications">
+                        <option value="on">On</option>
+                        <option value="off">Off</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+        <!-- Video call section -->
+        <section id="video-call">
+            <h1>Video Call</h1>
+            <video id="local-video"></video>
+            <video id="remote-video"></video>
+            <button id="video-call-btn">Start Call</button>
+        </section>
+        <!-- Voice mail section -->
+        <section id="voice-mail">
+            <h1>Voice Mail</h1>
+            <audio id="voice-mail-audio"></audio>
+            <button id="voice-mail-btn">Record</button>
+        </section>
+        <!-- Self-destructive messages section -->
+        <section id="self-destruct">
+            <h1>Self-Destructive Messages</h1>
+            <input id="self-destruct-input" type="text">
+            <button id="self-destruct-btn">Send</button>
+        </section>
+    </main>
+    <script>
+        // Use HTML5 Web Storage for data storage
+        localStorage.setItem('chats', JSON.stringify([
+            { id: 1, name: 'User 1', message: 'Last message...' },
+            { id: 2, name: 'User 2', message: 'Last message...' },
+        ]));
+        
+        // Use HTML5 Web Sockets for real-time communication
+        const socket = new WebSocket('ws://localhost:8080');
+        
+        // Use HTML5 WebRTC for video calls
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then(stream => {
+                document.getElementById('local-video').srcObject = stream;
+
+
+                <!-- Face ID section -->
+<section id="face-id">
+    <h1>Face ID</h1>
+    <video id="face-id-video"></video>
+    <button id="face-id-btn">Authenticate</button>
+</section>
